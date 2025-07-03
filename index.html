@@ -1,159 +1,184 @@
-from zipfile import ZipFile
-import os
-import shutil
-
-# Path setup
-project_dir = "/mnt/data/yanuar_portfolio_final"
-zip_path = "/mnt/data/yanuar_portfolio_final.zip"
-
-# Clean up previous directory if exists
-if os.path.exists(project_dir):
-    shutil.rmtree(project_dir)
-os.makedirs(project_dir, exist_ok=True)
-
-# HTML content updated with Organization & Language sections
-html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>M. Yanuar Anshori - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Yanuar Anshori - Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fb;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #002b5b;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-style: italic;
+      font-size: 1em;
+      margin-top: 10px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    section {
+      background: white;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    h2 {
+      color: #002b5b;
+      margin-bottom: 15px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    footer {
+      background: #002b5b;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+    .contact a {
+      color: #002b5b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>MUHAMMAD YANUAR ANSHORI</h1>
-    <p>📧 muhyanuaranshori@gmail.com | 📞 +6289697397800 | 📍 Semarang - Jawa Tengah</p>
+    <h1>Muhammad Yanuar Anshori</h1>
+    <p>“Crash Est Nostrum” (Hari Esok adalah Milik Kita)</p>
   </header>
 
-  <section>
-    <h2>Profile Summary</h2>
-    <p>Dikenal sebagai Yayan, lahir pada 23 Januari 2004, di Serang, Banten. Moto hidup saya adalah “Crash Est Nostrum” (Hari Esok adalah Milik Kita)...</p>
-  </section>
+  <div class="container">
+    <section>
+      <h2>Profile Summary</h2>
+      <p>Dikenal sebagai Yayan, lahir pada 23 Januari 2004, di Serang, Banten. Saya merupakan individu yang senang menjadi bagian dari organisasi dan terlibat dalam kegiatan sosial. Saya sering dipilih untuk menjadi bagian dari divisi kreatif karena kemampuan inovasi dan orientasi kuat pada solusi. Saya memiliki kemampuan beradaptasi, komunikasi yang baik, kreatif, namun terkadang terlalu ingin memimpin dan harus berhati-hati dengan ambisi berlebihan.</p>
+    </section>
 
-  <section>
-    <h2>Professional Skill</h2>
-    <ul>
-      <li>Adobe Photoshop</li><li>Canva</li><li>Ms. Office</li><li>UI/UX Design</li>
-    </ul>
-  </section>
+    <section class="grid">
+      <div>
+        <h2>Professional Skill</h2>
+        <ul>
+          <li>Adobe Photoshop</li>
+          <li>Canva</li>
+          <li>Ms. Office</li>
+          <li>UI/UX Design</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Relevant Skill</h2>
+        <ul>
+          <li>Time Management</li>
+          <li>Communication</li>
+          <li>Observation</li>
+          <li>Problem Solving</li>
+        </ul>
+      </div>
+    </section>
 
-  <section>
-    <h2>Relevant Skill</h2>
-    <ul>
-      <li>Time management</li><li>Communication</li><li>Observation</li><li>Problem solving</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Education</h2>
+      <ul>
+        <li><strong>Teknik Informatika</strong> – Universitas Islam Sultan Agung (2023–Sekarang)</li>
+        <li><strong>Graphic Design Training</strong> – KEMNAKER & BLKK Bani Syarfi (Nov–Des 2023)</li>
+        <li><strong>Natural Science</strong> – Madrasah Aliyah Daar Al-Ilmi (2019–2022)</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Education</h2>
-    <ul>
-      <li><strong>Teknik Informatika</strong> – Universitas Islam Sultan Agung (2023–Sekarang)</li>
-      <li><strong>Graphic Design Training</strong> – KEMNAKER – BLKK Bani Syarfi (Nov–Des 2023)</li>
-      <li><strong>Natural Science</strong> – Madrasah Aliyah Daar Al-Ilmi (2019–2022)</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Professional Experience</h2>
+      <ul>
+        <li><strong>Chief Technology Officer</strong> (Web Dev & Graphic Design) – Indonesian Youth Action (2023–2025)</li>
+        <li><strong>IT & Marketing</strong> – PT. Banten Business Consult (2023–2024)</li>
+        <li><strong>Computer Operator Instructor</strong> – KEMNAKER (Mei 2023)</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Professional Experience</h2>
-    <ul>
-      <li><strong>Chief Technology Officer (Web Dev & Graphic Design)</strong> – Yayasan Indonesian Youth Action (2023–2025)</li>
-      <li><strong>IT & Marketing</strong> – PT. Banten Business Consult (2023–2024)</li>
-      <li><strong>Computer Operator Instructor</strong> – KEMNAKER – BLKK Bani Syarfi (Mei 2023)</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Volunteer & Ambassador Experience</h2>
+      <p>Lebih dari 10 pengalaman sebagai panitia dan fasilitator di berbagai negara: Thailand, Jepang, Malaysia, hingga kegiatan nasional di NTT, Raja Ampat, dan Bromo.</p>
+    </section>
 
-  <section>
-    <h2>Ambassador Experience</h2>
-    <ul><li><strong>Duta Literasi Pendidikan Indonesia</strong> – Mewakili Provinsi Banten (2023)</li></ul>
-  </section>
+    <section>
+      <h2>Committee Experience</h2>
+      <ul>
+        <li>Panitia GENTA (Temu Akbar Difabel) – Kejar Mimpi</li>
+        <li>Panitia Donor Darah – Kejar Mimpi</li>
+        <li>Panitia Seminar Nasional – Garuda UNISSULA</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Volunteer Experience</h2>
-    <ul><li>Panitia International Youth Exchange and Conference #11 di Bangkok & Pattaya, Thailand – 6–10 Mei 2025</li></ul>
-  </section>
+    <section>
+      <h2>Tech Experience</h2>
+      <ul>
+        <li>Lead4 – UNDP Indonesia (2025)</li>
+        <li>AI-volutian – U.S. Embassy (2025)</li>
+        <li>Samsung Innovation Campus Batch 5 – Samsung (2023–2024)</li>
+        <li>Coding Camp – DBS Foundation (2025)</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Committee Experience</h2>
-    <ul><li>Panitia Donor Darah – Kejar Mimpi Semarang – 8 Juni 2025</li></ul>
-  </section>
+    <section>
+      <h2>Organization</h2>
+      <ul>
+        <li>Kejar Mimpi Semarang – CIMB Niaga (2025–2026)</li>
+        <li>Google Developer Group Semarang (2024–Sekarang)</li>
+        <li>Young On Top – YOTers Semarang (2024–Sekarang)</li>
+        <li>SATGAS PPKS UNISSULA (2024–2025)</li>
+        <li>Sultan Agung English Club (2023–Sekarang)</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Teaching Experience</h2>
-    <ul>
-      <li>Guru Tauhid Kelas 1 Madrasah Aliyah – Program MicroTeaching – Januari - Februari 2022</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Language</h2>
+      <ul>
+        <li>Indonesia – Native</li>
+        <li>English – Intermediate</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Tech Experience</h2>
-    <ul>
-      <li>Lead4 – A program from UNDP Indonesia (15 Januari – 5 Maret 2025)</li>
-    </ul>
-  </section>
+    <section class="contact">
+      <h2>Keep In Touch</h2>
+      <p>📞 +62 89697397800<br>
+         📧 muhyanuaranshori@gmail.com<br>
+         🌐 <a href="https://instagram.com/yayan_ansh" target="_blank">@yayan_ansh</a>
+      </p>
+      <p>Ingin menghubungi saya langsung? <a href="mailto:muhyanuaranshori@gmail.com">Klik di sini untuk kirim pesan</a></p>
+    </section>
+  </div>
 
-  <section>
-    <h2>Organization</h2>
-    <ul>
-      <li>Kejar Mimpi Semarang by <strong>CIMB NIAGA</strong> – 2025–2026</li>
-      <li>Google Developer Groups Semarang – 2024–Sekarang</li>
-      <li>Young On Top – Yoters Semarang – 2024–Sekarang</li>
-      <li>SATGAS PPKS Universitas Islam Sultan Agung – 2024–2025</li>
-      <li>Sultan Agung English Club – 2023–Sekarang</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Language</h2>
-    <ul>
-      <li>Indonesia – Native</li>
-      <li>English – Intermediate</li>
-    </ul>
-  </section>
-
-  <footer><p>© 2025 M. Yanuar Anshori | All rights reserved</p></footer>
+  <footer>
+    <p>© 2025 Muhammad Yanuar Anshori | Elegance, Precision, & Creativity</p>
+  </footer>
 </body>
 </html>
-"""
-
-style_css = """
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f5f7fa;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
-
-header {
-  background: #002855;
-  color: #fff;
-  padding: 1.5em;
-  text-align: center;
-}
-
-section {
-  background: #fff;
-  margin: 1em auto;
-  padding: 1em 2em;
-  max-width: 800px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-
-h1, h2 {
-  margin: 0.5em 0;
-}
-
-ul {
-  padding-left: 1.2em;
-}
-
-footer {
-  text-align: center;
-  font-size: 0.8em;
-  padding: 1em;
-  background: #e2e2e2;
-}
-"""
