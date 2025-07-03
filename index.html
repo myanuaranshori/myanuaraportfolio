@@ -4,123 +4,294 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Muhammad Yanuar Anshori - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=SF+Pro+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
+    :root {
+      --bg-main: #f2f5fa;
+      --bg-glass: rgba(255,255,255,0.75);
+      --card-glass: rgba(255,255,255,0.95);
+      --shadow-main: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+      --blue: #007aff;
+      --blue-dark: #0051a8;
+      --text-main: #212325;
+      --text-subtle: #757575;
+      --border-radius: 24px;
+      --header-height: 170px;
+    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
-      line-height: 1.6;
-      font-size: 15px;
+    html, body {
+      font-family: 'SF Pro Display', 'Inter', Arial, sans-serif;
+      background: var(--bg-main) url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center top/cover no-repeat fixed;
+      color: var(--text-main);
+      min-height: 100vh;
+      letter-spacing: 0.01em;
+      scroll-behavior: smooth;
+    }
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(120deg, #e0e7ef99 0%, #f6fafd99 100%);
+      backdrop-filter: blur(2px);
     }
     header {
-      background: linear-gradient(135deg, #2563eb, #1e3a8a);
-      padding: 50px 20px;
-      text-align: center;
+      position: relative;
+      width: 100%;
+      min-height: var(--header-height);
+      padding: 40px 20px 30px 20px;
+      background: linear-gradient(120deg, #007aff 50%, #e9f0fa 100%);
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      box-shadow: var(--shadow-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      z-index: 2;
+    }
+    .profile-pic {
+      width: 90px;
+      height: 90px;
+      border-radius: 22px;
+      object-fit: cover;
+      border: 4px solid #fff;
+      margin-bottom: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+      background: #e0e7ef;
+      /* Optional: Uncomment if you have a profile pic */
+      /* background-image: url('URL_FOTO_KAMU'); */
+      /* background-size: cover; background-position: center; */
     }
     header h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      text-shadow: 0 2px 8px #0051a82e;
     }
     header p {
-      margin-top: 10px;
+      color: #f7fafc;
       font-style: italic;
-      color: #cbd5e1;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      margin-top: 2px;
+      text-shadow: 0 2px 6px #0051a82e;
     }
     .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
+      max-width: 430px;
+      margin: -60px auto 0 auto;
+      padding: 0 12px 40px 12px;
+      z-index: 3;
+      position: relative;
     }
     section {
-      background: #1e293b;
-      padding: 25px;
-      margin-bottom: 25px;
-      border-left: 5px solid #3b82f6;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
+      background: var(--card-glass);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-main);
+      padding: 26px 22px 18px 22px;
+      margin-bottom: 24px;
+      transition: transform 0.15s cubic-bezier(.42,0,.58,1);
+      border: 1.5px solid #e6eaf1;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      position: relative;
     }
     section:hover {
-      transform: translateY(-4px);
+      transform: scale(1.025);
+      box-shadow: 0 2px 16px 0 rgba(0, 122, 255, 0.09);
     }
     h2 {
-      color: #3b82f6;
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-      border-bottom: 1px dashed #475569;
+      color: var(--blue);
+      font-size: 1.17rem;
+      font-weight: 700;
+      margin-bottom: 9px;
+      letter-spacing: 0.015em;
+      border-bottom: 1px solid #e6eaf1;
       padding-bottom: 5px;
+      background: linear-gradient(90deg,#007aff11 60%,#fff0 100%);
+      border-radius: 6px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
     ul li {
-      margin-left: 20px;
       margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+      font-size: 1.01rem;
+    }
+    ul li:before {
+      content: "•";
+      color: var(--blue);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.2em;
+      line-height: 1;
+      top: 0;
     }
     strong {
-      color: #facc15;
+      color: #fbbf24;
+      font-weight: 600;
     }
     .contact a {
-      color: #60a5fa;
-      text-decoration: none;
+      color: var(--blue);
+      text-decoration: underline;
+      word-break: break-all;
+    }
+    .contact a:hover {
+      color: var(--blue-dark);
+      text-decoration: underline;
     }
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 0 18px;
+    }
+    .grid > div {
+      min-width: 0;
+    }
+    .chip {
+      display: inline-block;
+      background: #e9f2ff;
+      color: var(--blue);
+      border-radius: 16px;
+      padding: 4px 13px;
+      font-size: 0.95em;
+      font-weight: 500;
+      margin-right: 6px;
+      margin-bottom: 6px;
+      vertical-align: middle;
+    }
+    .contact {
+      text-align: center;
+    }
+    .contact p {
+      margin-bottom: 6px;
+    }
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 7px;
+    }
+    .contact-icon {
+      width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+      background: #f2f5fa;
+      color: var(--blue);
+      border-radius: 50%;
+      font-size: 1.3em;
+      box-shadow: 0 2px 8px #0051a81a;
+      transition: background 0.15s;
+      border: 1px solid #e6eaf1;
+    }
+    .contact-icon:hover {
+      background: #d0e5ff;
+      color: #0051a8;
     }
     footer {
       text-align: center;
-      padding: 20px;
-      background: #1e293b;
-      border-top: 1px solid #475569;
-      color: #94a3b8;
+      padding: 22px 0 14px 0;
+      background: var(--card-glass);
+      border-top: 1.5px solid #e6eaf1;
+      color: #757575;
+      font-size: 0.95em;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      box-shadow: 0 -4px 24px 0 rgba(31, 38, 135, 0.08);
+      margin-top: 50px;
+      backdrop-filter: blur(10px);
     }
-    @media (max-width: 768px) {
+    /* iOS "notch" */
+    .notch {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 130px;
+      height: 26px;
+      background: #181d22;
+      border-radius: 20px 20px 20px 20px/12px 12px 18px 18px;
+      z-index: 10;
+      opacity: 0.17;
+      box-shadow: 0 2px 8px 0 #2222;
+    }
+    /* Responsive */
+    @media (max-width: 540px) {
+      .container {
+        max-width: 98vw;
+        padding: 0 2vw 32px 2vw;
+      }
+      header {
+        padding: 25px 6vw 25px 6vw;
+        min-height: 130px;
+      }
+      .profile-pic {
+        width: 70px; height: 70px;
+      }
+      section {
+        padding: 16px 9px 12px 12px;
+      }
+      h2 {
+        font-size: 1.07rem;
+      }
       .grid {
         grid-template-columns: 1fr;
+        gap: 0;
       }
-      body {
-        font-size: 14px;
-      }
-      header h1 {
-        font-size: 1.8rem;
+      .notch {
+        width: 88px; height: 16px; border-radius: 15px 15px 15px 15px/7px 7px 11px 11px;
       }
     }
+    /* Soft iOS scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+      background: #e4eef8;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c6d7e6;
+      border-radius: 10px;
+    }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
   <header data-aos="fade-down">
+    <div class="notch"></div>
+    <img class="profile-pic" src="https://avatars.githubusercontent.com/u/112194301?v=4" alt="Profile Picture" />
     <h1>Muhammad Yanuar Anshori</h1>
-    <p>“Crash Est Nostrum” (Hari Esok adalah Milik Kita)</p>
+    <p>“Crash Est Nostrum”<br><small style="color:#e6ecfa;font-size:0.99em;">(Hari Esok adalah Milik Kita)</small></p>
   </header>
   <div class="container">
     <section data-aos="fade-up">
       <h2>Profile Summary</h2>
-      <p>Dikenal sebagai Yayan, lahir pada 23 Januari 2004, di Serang, Banten. Saya merupakan individu yang senang menjadi bagian dari organisasi dan terlibat dalam kegiatan sosial. Saya sering dipilih untuk menjadi bagian dari divisi kreatif karena kemampuan inovasi dan orientasi kuat pada solusi. Saya memiliki kemampuan beradaptasi, komunikasi yang baik, kreatif, namun terkadang terlalu ingin memimpin dan harus berhati-hati dengan ambisi berlebihan.</p>
+      <p style="color:var(--text-subtle);font-size:1.04em;">
+        Dikenal sebagai Yayan, lahir pada 23 Januari 2004, di Serang, Banten.<br>
+        Senang berorganisasi & terlibat sosial, sering dipilih sebagai ketua atau panitia. Tertarik dengan teknologi, desain, dan kolaborasi global.
+      </p>
     </section>
     <section class="grid" data-aos="fade-up">
       <div>
         <h2>Professional Skill</h2>
-        <ul>
-          <li>Adobe Photoshop</li>
-          <li>Canva</li>
-          <li>Ms. Office</li>
-          <li>UI/UX Design</li>
-        </ul>
+        <div class="chip">Adobe Photoshop</div>
+        <div class="chip">Canva</div>
+        <div class="chip">Ms. Office</div>
+        <div class="chip">UI/UX Design</div>
       </div>
       <div>
         <h2>Relevant Skill</h2>
-        <ul>
-          <li>Time Management</li>
-          <li>Communication</li>
-          <li>Observation</li>
-          <li>Problem Solving</li>
-        </ul>
+        <div class="chip">Time Management</div>
+        <div class="chip">Communication</div>
+        <div class="chip">Observation</div>
+        <div class="chip">Problem Solving</div>
       </div>
     </section>
     <section data-aos="fade-up">
@@ -143,13 +314,13 @@
       <h2>Ambassador & Volunteer Experience</h2>
       <ul>
         <li><strong>Duta Literasi Pendidikan Indonesia</strong> – Mewakili Provinsi Banten (2023)</li>
-        <li><strong>Panitia International Youth Exchange and Conference #11</strong> – Bangkok & Pattaya (6–10 Mei 2025)</li>
+        <li><strong>Panitia International Youth Exchange & Conference #11</strong> – Bangkok & Pattaya (6–10 Mei 2025)</li>
         <li><strong>Panitia Action Youth #13</strong> – Papua Barat Daya (20 Jan–5 Feb 2025)</li>
         <li><strong>Panitia Action Youth #11</strong> – NTT (15–21 Agustus 2024)</li>
-        <li><strong>Panitia International Youth Exchange and Conference #6</strong> – Jepang (11–16 Maret 2024)</li>
-        <li><strong>Panitia International Youth Exchange and Conference #5</strong> – Singapore–Malaysia–Thailand (28 Nov–3 Des 2023)</li>
+        <li><strong>Panitia International Youth Exchange & Conference #6</strong> – Jepang (11–16 Maret 2024)</li>
+        <li><strong>Panitia International Youth Exchange & Conference #5</strong> – Singapore–Malaysia–Thailand (28 Nov–3 Des 2023)</li>
         <li><strong>Panitia Action Youth #8</strong> – Bromo (24–29 Okt 2023)</li>
-        <li><strong>Panitia International Youth Exchange and Conference #4</strong> – Singapore & Malaysia (18–22 Juli 2023)</li>
+        <li><strong>Panitia International Youth Exchange & Conference #4</strong> – Singapore & Malaysia (18–22 Juli 2023)</li>
         <li><strong>Panitia Action Youth #7</strong> – Lombok (2–8 Juni 2023)</li>
       </ul>
     </section>
@@ -157,7 +328,7 @@
       <h2>Committee Experience</h2>
       <ul>
         <li><strong>Panitia Donor Darah</strong> – Kejar Mimpi Semarang (8 Juni 2025)</li>
-        <li><strong>Panitia GENTA</strong> – (Gembira, Edukasi, dan Temu Akrab Difabel) Kejar Mimpi Semarang (10 Mei 2025)</li>
+        <li><strong>Panitia GENTA</strong> – Kejar Mimpi Semarang (10 Mei 2025)</li>
         <li><strong>Panitia YOT Mengajar</strong> – Young On Top (9 Nov 2024)</li>
         <li><strong>Panitia Seminar Nasional</strong> – Garuda UNISSULA (25 Nov 2023)</li>
         <li><strong>Panitia Masa Orientasi Santri</strong> – Daar Al-Ilmi (Juli 2022)</li>
@@ -191,17 +362,23 @@
     </section>
     <section class="contact" data-aos="fade-up">
       <h2>Keep In Touch</h2>
-      <p>📞 +62 89697397800<br>
-         📧 muhyanuaranshori@gmail.com<br>
-         🌐 <a href="https://instagram.com/yayan_ansh" target="_blank">@yayan_ansh</a>
-      </p>
-      <p>Ingin menghubungi saya langsung? <a href="mailto:muhyanuaranshori@gmail.com">Klik di sini untuk kirim pesan</a></p>
+      <div class="contact-icons">
+        <a class="contact-icon" href="https://wa.me/6289697397800" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a class="contact-icon" href="mailto:muhyanuaranshori@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a class="contact-icon" href="https://instagram.com/yayan_ansh" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>📞 <a href="tel:+6289697397800">+62 89697397800</a></p>
+      <p>📧 <a href="mailto:muhyanuaranshori@gmail.com">muhyanuaranshori@gmail.com</a></p>
+      <p>🌐 <a href="https://instagram.com/yayan_ansh" target="_blank">@yayan_ansh</a></p>
+      <p style="margin-top:7px;">Ingin menghubungi saya langsung? <a href="mailto:muhyanuaranshori@gmail.com">Klik di sini untuk kirim pesan</a></p>
     </section>
   </div>
   <footer data-aos="fade-up">
     <p>© 2025 Muhammad Yanuar Anshori | Teknik Informatika</p>
   </footer>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init({ duration: 1000, once: true });</script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
 </body>
 </html>
