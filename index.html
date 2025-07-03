@@ -23,18 +23,38 @@
       box-sizing: border-box;
     }
     body {
-      font-family: 'Inter', sans-serif;
-      font-size: var(--font-size);
-      background-color: var(--bg-main);
-      color: var(--text-main);
-      line-height: 1.5;
-    }
-    header {
-  background: linear-gradient(135deg, #b9c6ff 0%, #b2a4ff 40%, #f9c6ff 100%);
-      text-align: center;
-      padding: 30px 15px;
-      border-radius: 0 0 var(--border-radius) var(--border-radius);
-    }
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #F5F6F7; /* iOS-style solid */
+  font-family: 'San Francisco', 'Segoe UI', Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(200,200,200,0.3);
+  box-shadow: 0 2px 8px 0 rgba(31,38,135,0.04);
+  padding: 1.2rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+/* CARD CONTAINER */
+.card {
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 400px;
+}
     .profile-pic {
       width: 64px;
       height: 64px;
